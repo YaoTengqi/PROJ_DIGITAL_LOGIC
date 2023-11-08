@@ -31,24 +31,47 @@ module TOP #(
     //实例化GEMM进行全连接运算
     reg [DATA_WIDTH - 1 : 0] gemm_results[OUTPUT_CHANNEL];
     reg gemm_done = 1'b0;
+    reg [DATA_WIDTH - 1 : 0] read_acc1;
+    reg [DATA_WIDTH - 1 : 0] read_acc2;
     genvar i, j;
     generate
         for(i = 2; i < OUTPUT_CHANNEL; i = i + 2) begin
             gemm_done = 1'b0;
-            for(j = 0; j < 16; j = j + 1) begin
+            for(j = 0; j < 16; j = j + 1) begin 
+                //ram读出数据
+                RAM # (
+                    .DATA_WIDTH(DATA_WIDTH),
+                    .ADDR_WIDTH(ADDR_WIDTH)
+                ) acc_ram(
+                    .clk(clk),
+                    .request(1'b0),
+                    .addr(i * 8),
+                    .write_data(),
+                    .read_data(read_acc1)
+                );
+                RAM # (
+                    .DATA_WIDTH(DATA_WIDTH),
+                    .ADDR_WIDTH(ADDR_WIDTH)
+                ) acc_ram(
+                    .clk(clk),
+                    .request(1'b0),
+                    .addr(i * 8),
+                    .write_data(),
+                    .read_data(read_acc2)
+                );
                 GEMM # (
-                        .DATA_WIDTH(DATA_WIDTH),
-                        .INP_CHANNEL(INP_CHANNEL)
-                    ) fconn (
-                        .clk(clk),
-                        .inp(inp_rom[j : j + 15]),
-                        .wgt1(wgt_rom[i][j : j + 15]),
-                        .wgt2(wgt_rom[i + 1][j : j + 15]),
-                        .acc1(acc_ram[i]),
-                        .acc2(acc_ram[i + 1]),
-                        .gemm_result1(gemm_results[i]),
-                        .gemm_result2(gemm_results[i + 1])
-                    );                
+                    .DATA_WIDTH(DATA_WIDTH),
+                    .INP_CHANNEL(INP_CHANNEL)
+                ) fconn (
+                    .clk(clk),
+                    .inp(inp_rom[j : j + 15]),
+                    .wgt1(wgt_rom[i][j : j + 15]),
+                    .wgt2(wgt_rom[i + 1][j : j + 15]),
+                    .acc1(read_acc1),
+                    .acc2(read_acc2),
+                    .gemm_result1(gemm_results[i]),
+                    .gemm_result2(gemm_results[i + 1])
+                );                
             end
             gemm_done = 1'b1;
         end
@@ -57,11 +80,31 @@ module TOP #(
      always @(posedge clk) begin
         if(gemm_done == 1'b1) begin
             //ram写回数据
-            acc_ram.request <= 1'b1;
-            acc_ram.addr <= i * 8;
-            acc_ram.write_data <= gemm_results[i]; 
-            acc_ram.addr <= (i + 1) * 8;
-            acc_ram.write_data <= gemm_results[i + 1]; 
+            RAM # (
+                .DATA_WIDTH(DATA_WIDTH),
+                .ADDR_WIDTH(ADDR_WIDTH)
+            ) acc_ram(
+                .clk(clk),
+                .request(1'b1),
+                .addr(i * 8),
+                .write_data(gemm_results[i]),
+                .read_data()
+            );
+            RAM # (
+                .DATA_WIDTH(DATA_WIDTH),
+                .ADDR_WIDTH(ADDR_WIDTH)
+            ) acc_ram(
+                .clk(clk),
+                .request(1'b1),
+                .addr(i * 8),
+                .write_data(gemm_results[i + 1]),
+                .read_data()
+            );
+            // acc_ram.request <= 1'b1;
+            // acc_ram.addr <= i * 8;
+            // acc_ram.write_data <= gemm_results[i]; 
+            // acc_ram.addr <= (i + 1) * 8;
+            // acc_ram.write_data <= gemm_results[i + 1]; 
         end
     end
 
