@@ -12,8 +12,8 @@
 
   <center>LeNet网络结构</center>
 
-  1. 移位操作(inp:16\*8\*8	output:16\*8\*8)
-  2. maxpooling操作(inp:16\*8\*8	output:16\*4\*4)
+  1. ~~移位操作(inp:16\*8\*8	output:16\*8\*8)~~
+  2. ~~maxpooling操作(inp:16\*8\*8	output:16\*4\*4)~~
   1. 全连接操作(inp:16\*4\*4    wgt:10\*16\*4\*4	output:10\*1\*1)
   1. 判断给出结果(0-9显示在数字管)
 
