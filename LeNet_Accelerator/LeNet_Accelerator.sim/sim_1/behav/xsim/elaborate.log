@@ -1,0 +1,9 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /home/ytq/source/Xilinx/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot TOP_behav xil_defaultlib.TOP xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-2063] Module <ram> not found while processing module instance <inp_mem> [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v:67]
+ERROR: [VRFC 10-3180] cannot find port 'acc2' on this module [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v:168]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
