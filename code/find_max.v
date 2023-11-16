@@ -1,29 +1,39 @@
 module find_max #(
-    parameter DATA_WIDTH = 8,
+    parameter DATA_WIDTH = 16,
     parameter OUTPUT_CHANNEL = 10
 ) (
     input wire clk,
-    input wire [DATA_WIDTH * OUTPUT_CHANNEL - 1 : 0] inp,
-    input wire [DATA_WIDTH * OUTPUT_CHANNEL - 1 : 0] bias,
-    output reg  number
+    input wire signed [DATA_WIDTH - 1 : 0] inp1,
+    input wire signed [DATA_WIDTH - 1 : 0] inp2,
+    // input wire [DATA_WIDTH - 1 : 0] bias1,
+    // input wire [DATA_WIDTH - 1 : 0] bias2,
+    input wire [4 : 0] index,
+    output wire signed [4 : 0]  find_max_out
 );
-    reg [DATA_WIDTH * OUTPUT_CHANNEL - 1 : 0] result;
-    reg [DATA_WIDTH - 1 : 0] max;
-    reg [3 : 0] index = 0;
-    integer i;
-
+    reg signed [DATA_WIDTH : 0] result1;
+    reg signed [DATA_WIDTH : 0] result2;
+    (* MARK_DEBUG="true" *)reg signed [DATA_WIDTH : 0] max;
+    reg [4 : 0] num;
+    
     always @(posedge clk) begin
-        for(i = 0; i < 9; i = i + 1) 
-            result[i * DATA_WIDTH+ : DATA_WIDTH] = inp[i * DATA_WIDTH+ : DATA_WIDTH] + bias[i * DATA_WIDTH+ : DATA_WIDTH];
-    end    
-
-    always @(posedge clk) begin
-        for(i = 0; i < 9; i = i + 1) begin
-            if(result[i * DATA_WIDTH+ : DATA_WIDTH] > max) begin
-                index = i;
-                max = result[i * DATA_WIDTH+ : DATA_WIDTH];
+        result1 = inp1;
+        result2 = inp2;
+        if(index == 0) begin
+            max = result1;
+            num = 0;
+        end
+        else begin
+            if(max < result1) begin
+                max = result1;
+                num = index - 2;
+            end
+            else if(max < result2) begin
+                max = result2;
+                num = index + 1 - 2;
             end
         end
-        number <= index;
-    end    
+    end
+
+    assign find_max_out = num;
+
 endmodule

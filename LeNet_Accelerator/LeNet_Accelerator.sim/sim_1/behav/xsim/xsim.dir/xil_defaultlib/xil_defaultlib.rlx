@@ -2,7 +2,15 @@
 2020.2
 Oct 14 2022
 05:07:14
-/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/LeNet_Accelerator/LeNet_Accelerator.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
-/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v,1699533819,verilog,,/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v,,GEMM,,,,,,,,
-/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v,1699533145,verilog,,,,TOP,,,,,,,,
-/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v,1699500232,verilog,,/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v,,find_max,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/acc_mem/sim/acc_mem.v,1700011593,verilog,,/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/wgt_mem/sim/wgt_mem.v,,acc_mem,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/inp_mem_2/sim/inp_mem.v,1700123736,verilog,,/home/ytq/codeField/exercise/PROJ_11_14/code/GEMM.v,,inp_mem,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/wgt_mem/sim/wgt_mem.v,1700123750,verilog,,/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/inp_mem_2/sim/inp_mem.v,,wgt_mem,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/code/GEMM.v,1699970564,verilog,,/home/ytq/codeField/exercise/PROJ_11_14/code/PE.v,,GEMM,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/code/PE.v,1699970585,verilog,,/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v,,PE,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v,1699964033,verilog,,/home/ytq/codeField/exercise/PROJ_11_14/code/find_max.v,,TOP,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/code/TOP_tb.v,1699965893,verilog,,,,tb_TOP,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/code/find_max.v,1699959377,verilog,,/home/ytq/codeField/exercise/PROJ_11_14/code/mem_data_sync.v,,find_max,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/code/mem_data_sync.v,1699929697,verilog,,/home/ytq/codeField/exercise/PROJ_11_14/code/register_sync.v,,mem_data_sync,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/code/register_sync.v,1699931062,verilog,,/home/ytq/codeField/exercise/PROJ_11_14/code/smg_ip_model.v,,register_sync,,,,,,,,
+/home/ytq/codeField/exercise/PROJ_11_14/code/smg_ip_model.v,1699963415,verilog,,/home/ytq/codeField/exercise/PROJ_11_14/code/TOP_tb.v,,smg_ip_model,,,,,,,,

@@ -1,0 +1,2 @@
+wgt_mem.v,verilog,xil_defaultlib,../../../../LeNet_Accelerator.gen/sources_1/ip/wgt_mem/sim/wgt_mem.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

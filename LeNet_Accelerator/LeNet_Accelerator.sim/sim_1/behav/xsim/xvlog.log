@@ -1,16 +1,22 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/acc_mem/sim/acc_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module acc_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/wgt_mem/sim/wgt_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module wgt_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/inp_mem_2/sim/inp_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inp_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_11_14/code/GEMM.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module GEMM
-WARNING: [VRFC 10-928] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v:35]
-WARNING: [VRFC 10-928] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v:36]
-WARNING: [VRFC 10-928] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v:53]
-WARNING: [VRFC 10-928] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v:56]
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module find_max
-WARNING: [VRFC 10-928] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v:17]
-WARNING: [VRFC 10-928] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v:22]
-WARNING: [VRFC 10-928] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v:24]
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_11_14/code/PE.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PE
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module TOP
-WARNING: [VRFC 10-3380] identifier 'OUTPUT_CHANNEL' is used before its declaration [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v:8]
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/LeNet_Accelerator/LeNet_Accelerator.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_11_14/code/find_max.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module find_max
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_11_14/code/mem_data_sync.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mem_data_sync
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_11_14/code/register_sync.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module register_sync
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_11_14/code/smg_ip_model.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module smg_ip_model
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ytq/codeField/exercise/PROJ_11_14/code/TOP_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_TOP

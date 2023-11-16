@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/LeNet_Accelerator/LeNet_Accelerator.runs/synth_1/TOP.tcl"
+  variable script "/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.runs/synth_1/TOP.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,28 +70,48 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param tcl.collectionResultDisplayLimit 0
+set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 4
 OPTRACE "Creating in-memory project" START { }
-create_project -in_memory -part xc7a35ticpg236-1L
+create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/LeNet_Accelerator/LeNet_Accelerator.cache/wt [current_project]
-set_property parent.project_path /home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/LeNet_Accelerator/LeNet_Accelerator.xpr [current_project]
+set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
+set_property webtalk.parent_dir /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.cache/wt [current_project]
+set_property parent.project_path /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.xpr [current_project]
+set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/LeNet_Accelerator/LeNet_Accelerator.cache/ip [current_project]
+set_property ip_output_repo /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+add_files /home/ytq/codeField/exercise/PROJ_11_14/code/data/input.coe
+add_files /home/ytq/codeField/exercise/PROJ_11_14/code/data/weights.coe
+add_files /home/ytq/codeField/exercise/PROJ_11_14/code/data/bias.coe
+add_files /home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/data/input.coe
+add_files /home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/data/weights.coe
 read_verilog -library xil_defaultlib {
-  /home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v
-  /home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/PE.v
-  /home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v
-  /home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/ram.v
-  /home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v
+  /home/ytq/codeField/exercise/PROJ_11_14/code/GEMM.v
+  /home/ytq/codeField/exercise/PROJ_11_14/code/PE.v
+  /home/ytq/codeField/exercise/PROJ_11_14/code/find_max.v
+  /home/ytq/codeField/exercise/PROJ_11_14/code/mem_data_sync.v
+  /home/ytq/codeField/exercise/PROJ_11_14/code/register_sync.v
+  /home/ytq/codeField/exercise/PROJ_11_14/code/smg_ip_model.v
+  /home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v
 }
+read_ip -quiet /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/sources_1/ip/wgt_mem/wgt_mem.xci
+set_property used_in_implementation false [get_files -all /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/wgt_mem/wgt_mem_ooc.xdc]
+
+read_ip -quiet /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/sources_1/ip/acc_mem/acc_mem.xci
+set_property used_in_implementation false [get_files -all /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/acc_mem/acc_mem_ooc.xdc]
+
+read_ip -quiet /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/sources_1/ip/inp_mem_2/inp_mem.xci
+set_property used_in_implementation false [get_files -all /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/inp_mem_2/inp_mem_ooc.xdc]
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -101,11 +121,18 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/constrs_1/new/lenet.xdc
+set_property used_in_implementation false [get_files /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/constrs_1/new/lenet.xdc]
+
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/utils_1/imports/synth_1/TOP.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top TOP -part xc7a35ticpg236-1L
+synth_design -top TOP -part xc7a35tcpg236-1
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"

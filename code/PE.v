@@ -1,16 +1,16 @@
 module PE #(
     parameter DATA_WIDTH = 8,
-    parameter PE_OUT_WIDTH = 8
+    parameter PE_OUT_WIDTH = 21
 ) (
     input wire clk,
-    input wire [DATA_WIDTH - 1 : 0] inp_in,
-    input wire [DATA_WIDTH - 1 : 0] out_in,
-    input wire [DATA_WIDTH - 1 : 0] acc_in,
-    output wire [PE_OUT_WIDTH - 1 : 0] acc_out
+    input wire signed [DATA_WIDTH - 1 : 0] inp_in,
+    input wire signed [DATA_WIDTH - 1 : 0] wgt_in,
+    input wire signed [PE_OUT_WIDTH - 1 : 0] acc_in,
+    output wire signed [PE_OUT_WIDTH - 1 : 0] acc_out
 );
-    reg [PE_OUT_WIDTH - 1 : 0] result;
-    always @(posedge clk) begin
-        result = inp_in * out_in + acc_in;
-    end
+    reg signed [PE_OUT_WIDTH - 1 : 0] result;
     assign acc_out = result;
+    always @(posedge clk) begin
+        result <= inp_in * wgt_in + acc_in;
+    end
 endmodule

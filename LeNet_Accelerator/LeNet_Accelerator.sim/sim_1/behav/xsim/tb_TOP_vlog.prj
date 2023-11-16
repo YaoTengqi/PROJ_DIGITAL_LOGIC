@@ -1,0 +1,19 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../LeNet_Accelerator.gen/sources_1/ip/acc_mem/sim/acc_mem.v" \
+"../../../../LeNet_Accelerator.gen/sources_1/ip/wgt_mem/sim/wgt_mem.v" \
+"../../../../LeNet_Accelerator.gen/sources_1/ip/inp_mem_2/sim/inp_mem.v" \
+"../../../../../code/GEMM.v" \
+"../../../../../code/PE.v" \
+"../../../../../code/TOP.v" \
+"../../../../../code/find_max.v" \
+"../../../../../code/mem_data_sync.v" \
+"../../../../../code/register_sync.v" \
+"../../../../../code/smg_ip_model.v" \
+"../../../../../code/TOP_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

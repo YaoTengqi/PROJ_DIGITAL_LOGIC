@@ -9,44 +9,440 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source TOP.tcl -notrace
-Command: synth_design -top TOP -part xc7a35ticpg236-1L
+Command: read_checkpoint -auto_incremental -incremental /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/utils_1/imports/synth_1/TOP.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/utils_1/imports/synth_1/TOP.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top TOP -part xc7a35tcpg236-1
 Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
+WARNING: [Vivado_Tcl 4-393] The 'Synthesis' target of the following IPs are stale, please generate the output products using the generate_target or synth_ip command before running synth_design.
+/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/sources_1/ip/wgt_mem/wgt_mem.xci
+/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/sources_1/ip/inp_mem_2/inp_mem.xci
+
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 8498
+INFO: [Synth 8-7075] Helper process launched with PID 13991
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/ytq/source/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
-WARNING: [Synth 8-2237] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v:35]
-WARNING: [Synth 8-2237] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v:36]
-WARNING: [Synth 8-2237] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v:53]
-WARNING: [Synth 8-2237] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v:53]
-WARNING: [Synth 8-2237] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v:56]
-WARNING: [Synth 8-2237] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/GEMM.v:56]
-WARNING: [Synth 8-2237] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v:17]
-WARNING: [Synth 8-2237] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v:17]
-WARNING: [Synth 8-2237] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v:17]
-WARNING: [Synth 8-2237] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v:22]
-WARNING: [Synth 8-2237] indexed range expression contains whitespace between + and : [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/find_max.v:24]
-WARNING: [Synth 8-6901] identifier 'OUTPUT_CHANNEL' is used before its declaration [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v:9]
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2148.566 ; gain = 383.707 ; free physical = 40273 ; free virtual = 57553
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1544.266; parent = 1331.792; children = 212.474
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3141.410; parent = 2148.570; children = 992.840
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2457.605 ; gain = 371.766 ; free physical = 41677 ; free virtual = 51486
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1858.023; parent = 1649.198; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3453.414; parent = 2460.578; children = 992.836
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'TOP' [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v:2]
-WARNING: [Synth 8-6896] loop limit (65536) exceeded inside initial block, initial block items will be ignored [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v:253]
-ERROR: [Synth 8-6086] Memory item 'mem' cannot be referred hierarchically [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v:264]
-INFO: [Synth 8-3876] $readmem data file '/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/data/input.txt' is read successfully [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v:264]
-ERROR: [Synth 8-6156] failed synthesizing module 'TOP' [/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/TOP.v:2]
+INFO: [Synth 8-6157] synthesizing module 'TOP' [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:2]
+INFO: [Synth 8-6157] synthesizing module 'inp_mem' [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.runs/synth_1/.Xil/Vivado-13891-ytq/realtime/inp_mem_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'inp_mem' (0#1) [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.runs/synth_1/.Xil/Vivado-13891-ytq/realtime/inp_mem_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (3) of module 'inp_mem' [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:135]
+INFO: [Synth 8-6157] synthesizing module 'mem_data_sync' [/home/ytq/codeField/exercise/PROJ_11_14/code/mem_data_sync.v:2]
+INFO: [Synth 8-6157] synthesizing module 'register_sync' [/home/ytq/codeField/exercise/PROJ_11_14/code/register_sync.v:8]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'register_sync' (0#1) [/home/ytq/codeField/exercise/PROJ_11_14/code/register_sync.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'mem_data_sync' (0#1) [/home/ytq/codeField/exercise/PROJ_11_14/code/mem_data_sync.v:2]
+INFO: [Synth 8-6157] synthesizing module 'wgt_mem' [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.runs/synth_1/.Xil/Vivado-13891-ytq/realtime/wgt_mem_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'wgt_mem' (0#1) [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.runs/synth_1/.Xil/Vivado-13891-ytq/realtime/wgt_mem_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (7) of module 'wgt_mem' [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:148]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (7) of module 'wgt_mem' [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:154]
+INFO: [Synth 8-6157] synthesizing module 'acc_mem' [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.runs/synth_1/.Xil/Vivado-13891-ytq/realtime/acc_mem_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'acc_mem' (0#1) [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.runs/synth_1/.Xil/Vivado-13891-ytq/realtime/acc_mem_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'acc_mem' [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:175]
+WARNING: [Synth 8-689] width (10) of port connection 'addrb' does not match port width (4) of module 'acc_mem' [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:181]
+WARNING: [Synth 8-7071] port 'dinb' of module 'acc_mem' is unconnected for instance 'acc_mem1' [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:171]
+WARNING: [Synth 8-7023] instance 'acc_mem1' of module 'acc_mem' has 12 connections declared, but only 11 given [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:171]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'acc_mem' [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:188]
+WARNING: [Synth 8-689] width (10) of port connection 'addrb' does not match port width (4) of module 'acc_mem' [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:194]
+WARNING: [Synth 8-7071] port 'dinb' of module 'acc_mem' is unconnected for instance 'acc_mem2' [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:184]
+WARNING: [Synth 8-7023] instance 'acc_mem2' of module 'acc_mem' has 12 connections declared, but only 11 given [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:184]
+INFO: [Synth 8-6157] synthesizing module 'GEMM' [/home/ytq/codeField/exercise/PROJ_11_14/code/GEMM.v:1]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter PE_OUT_WIDTH bound to: 24 - type: integer 
+	Parameter ARRAY_M bound to: 2 - type: integer 
+	Parameter ARRAY_N bound to: 16 - type: integer 
+	Parameter CHANNEL bound to: 96 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'PE' [/home/ytq/codeField/exercise/PROJ_11_14/code/PE.v:1]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter PE_OUT_WIDTH bound to: 24 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'PE' (0#1) [/home/ytq/codeField/exercise/PROJ_11_14/code/PE.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'GEMM' (0#1) [/home/ytq/codeField/exercise/PROJ_11_14/code/GEMM.v:1]
+INFO: [Synth 8-6157] synthesizing module 'find_max' [/home/ytq/codeField/exercise/PROJ_11_14/code/find_max.v:1]
+	Parameter DATA_WIDTH bound to: 24 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'find_max' (0#1) [/home/ytq/codeField/exercise/PROJ_11_14/code/find_max.v:1]
+INFO: [Synth 8-6157] synthesizing module 'smg_ip_model' [/home/ytq/codeField/exercise/PROJ_11_14/code/smg_ip_model.v:1]
+WARNING: [Synth 8-567] referenced signal 'data' should be on the sensitivity list [/home/ytq/codeField/exercise/PROJ_11_14/code/smg_ip_model.v:22]
+INFO: [Synth 8-226] default block is never used [/home/ytq/codeField/exercise/PROJ_11_14/code/smg_ip_model.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'smg_ip_model' (0#1) [/home/ytq/codeField/exercise/PROJ_11_14/code/smg_ip_model.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'TOP' (0#1) [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:2]
+WARNING: [Synth 8-6014] Unused sequential element result1_reg was removed.  [/home/ytq/codeField/exercise/PROJ_11_14/code/find_max.v:19]
+WARNING: [Synth 8-6014] Unused sequential element result2_reg was removed.  [/home/ytq/codeField/exercise/PROJ_11_14/code/find_max.v:20]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'find_max'. This will prevent further optimization [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:219]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'smg_ip_model'. This will prevent further optimization [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:228]
+WARNING: [Synth 8-6014] Unused sequential element find_max_in_reg1_reg was removed.  [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:49]
+WARNING: [Synth 8-6014] Unused sequential element find_max_in_reg2_reg was removed.  [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:50]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2242.535 ; gain = 477.676 ; free physical = 40155 ; free virtual = 57435
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1663.393; parent = 1450.991; children = 212.474
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3235.379; parent = 2242.539; children = 992.840
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2538.543 ; gain = 452.703 ; free physical = 41762 ; free virtual = 51572
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1858.023; parent = 1649.198; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3531.383; parent = 2538.547; children = 992.836
 ---------------------------------------------------------------------------------
-synthesize failed
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2556.355 ; gain = 470.516 ; free physical = 41762 ; free virtual = 51572
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1858.023; parent = 1649.198; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3549.195; parent = 2556.359; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2556.355 ; gain = 470.516 ; free physical = 41762 ; free virtual = 51572
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1858.023; parent = 1649.198; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3549.195; parent = 2556.359; children = 992.836
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2562.293 ; gain = 0.000 ; free physical = 41754 ; free virtual = 51563
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/wgt_mem/wgt_mem/wgt_mem_in_context.xdc] for cell 'wgt_mem1'
+Finished Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/wgt_mem/wgt_mem/wgt_mem_in_context.xdc] for cell 'wgt_mem1'
+Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/wgt_mem/wgt_mem/wgt_mem_in_context.xdc] for cell 'wgt_mem2'
+Finished Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/wgt_mem/wgt_mem/wgt_mem_in_context.xdc] for cell 'wgt_mem2'
+Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/acc_mem/acc_mem/acc_mem_in_context.xdc] for cell 'acc_mem1'
+Finished Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/acc_mem/acc_mem/acc_mem_in_context.xdc] for cell 'acc_mem1'
+Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/acc_mem/acc_mem/acc_mem_in_context.xdc] for cell 'acc_mem2'
+Finished Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/acc_mem/acc_mem/acc_mem_in_context.xdc] for cell 'acc_mem2'
+Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/inp_mem_2/inp_mem/inp_mem_in_context.xdc] for cell 'inp_mem_generate'
+Finished Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.gen/sources_1/ip/inp_mem_2/inp_mem/inp_mem_in_context.xdc] for cell 'inp_mem_generate'
+Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/constrs_1/new/lenet.xdc]
+Finished Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/constrs_1/new/lenet.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.srcs/constrs_1/new/lenet.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2721.105 ; gain = 0.000 ; free physical = 41677 ; free virtual = 51486
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2721.105 ; gain = 0.000 ; free physical = 41677 ; free virtual = 51486
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/ytq/source/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41757 ; free virtual = 51566
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1858.023; parent = 1649.198; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41757 ; free virtual = 51566
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1858.023; parent = 1649.198; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for wgt_mem1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for wgt_mem2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for acc_mem1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for acc_mem2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for inp_mem_generate. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41757 ; free virtual = 51566
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1858.023; parent = 1649.198; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41748 ; free virtual = 51557
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1858.023; parent = 1649.198; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 1     
+	   2 Input   24 Bit       Adders := 2     
+	   2 Input   13 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 2     
+	   2 Input    5 Bit       Adders := 3     
+	   2 Input    4 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               25 Bit    Registers := 1     
+	               24 Bit    Registers := 34    
+	               13 Bit    Registers := 1     
+	               10 Bit    Registers := 2     
+	                8 Bit    Registers := 136   
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 5     
+	                4 Bit    Registers := 6     
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   2 Input   25 Bit        Muxes := 2     
+	   2 Input   13 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 1     
+	  12 Input    5 Bit        Muxes := 1     
+	   5 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 3     
+	  12 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 4     
+	   2 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 4     
+	  12 Input    1 Bit        Muxes := 13    
+	  11 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3936] Found unconnected internal register 'wgt_mem_read_addr1_reg_reg' and it is trimmed from '8' to '7' bits. [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:70]
+WARNING: [Synth 8-3936] Found unconnected internal register 'wgt_mem_read_addr2_reg_reg' and it is trimmed from '8' to '7' bits. [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:71]
+WARNING: [Synth 8-3936] Found unconnected internal register 'acc_mem_addr2_reg_reg' and it is trimmed from '10' to '4' bits. [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:73]
+WARNING: [Synth 8-3936] Found unconnected internal register 'acc_mem_addr1_reg_reg' and it is trimmed from '10' to '4' bits. [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:72]
+WARNING: [Synth 8-3936] Found unconnected internal register 'inp_mem_read_addr_reg_reg' and it is trimmed from '4' to '3' bits. [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:69]
+WARNING: [Synth 8-3936] Found unconnected internal register 'acc_mem_addr1_find_max_reg_reg' and it is trimmed from '5' to '4' bits. [/home/ytq/codeField/exercise/PROJ_11_14/code/TOP.v:74]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41730 ; free virtual = 51544
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1858.023; parent = 1649.198; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41608 ; free virtual = 51430
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1957.156; parent = 1748.927; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41607 ; free virtual = 51429
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1959.074; parent = 1750.845; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41597 ; free virtual = 51418
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1968.680; parent = 1760.450; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[23]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[22]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[21]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[20]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[19]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[18]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[17]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[16]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[15]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[14]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[13]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[12]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[11]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[10]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[9]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[8]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[7]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[6]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem1 has unconnected pin dinb[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[23]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[22]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[21]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[20]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[19]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[18]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[17]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[16]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[15]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[14]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[13]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[12]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[11]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[10]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[9]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[8]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[7]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[6]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module acc_mem2 has unconnected pin dinb[0]
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41272 ; free virtual = 51089
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1968.705; parent = 1760.483; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41262 ; free virtual = 51079
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1968.721; parent = 1760.499; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41204 ; free virtual = 51021
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1969.111; parent = 1760.890; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41204 ; free virtual = 51021
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1969.111; parent = 1760.890; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41204 ; free virtual = 51021
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1969.111; parent = 1760.890; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41255 ; free virtual = 51072
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1969.111; parent = 1760.890; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+-------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                                    | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+-------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|TOP         | inp_sync/SYNC_N[2].SYNC_M[2].read_addr_fwd/out_reg_reg[7]   | 3      | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[3].SYNC_M[3].read_addr_fwd/out_reg_reg[7]   | 4      | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[4].SYNC_M[4].read_addr_fwd/out_reg_reg[7]   | 5      | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[5].SYNC_M[5].read_addr_fwd/out_reg_reg[7]   | 6      | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[6].SYNC_M[6].read_addr_fwd/out_reg_reg[7]   | 7      | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[7].SYNC_M[7].read_addr_fwd/out_reg_reg[7]   | 8      | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[8].SYNC_M[8].read_addr_fwd/out_reg_reg[7]   | 9      | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[9].SYNC_M[9].read_addr_fwd/out_reg_reg[7]   | 10     | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[10].SYNC_M[10].read_addr_fwd/out_reg_reg[7] | 11     | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[11].SYNC_M[11].read_addr_fwd/out_reg_reg[7] | 12     | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[12].SYNC_M[12].read_addr_fwd/out_reg_reg[7] | 13     | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[13].SYNC_M[13].read_addr_fwd/out_reg_reg[7] | 14     | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[14].SYNC_M[14].read_addr_fwd/out_reg_reg[7] | 15     | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|TOP         | inp_sync/SYNC_N[15].SYNC_M[15].read_addr_fwd/out_reg_reg[7] | 16     | 8     | NO           | NO                 | YES               | 8      | 0       | 
++------------+-------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |inp_mem       |         1|
+|2     |wgt_mem       |         2|
+|3     |acc_mem       |         2|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |acc_mem |     2|
+|3     |inp_mem |     1|
+|4     |wgt_mem |     2|
+|6     |BUFG    |     1|
+|7     |CARRY4  |   591|
+|8     |LUT1    |    55|
+|9     |LUT2    |  1420|
+|10    |LUT3    |   231|
+|11    |LUT4    |   872|
+|12    |LUT5    |   210|
+|13    |LUT6    |   886|
+|14    |SRL16E  |   112|
+|15    |FDRE    |   999|
+|16    |FDSE    |     7|
+|17    |IBUF    |     1|
+|18    |OBUF    |    12|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41255 ; free virtual = 51072
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1969.111; parent = 1760.890; children = 208.825
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3681.930; parent = 2689.094; children = 992.836
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 48 critical warnings and 7 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2721.105 ; gain = 470.516 ; free physical = 41310 ; free virtual = 51127
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2721.105 ; gain = 635.266 ; free physical = 41310 ; free virtual = 51127
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2721.105 ; gain = 0.000 ; free physical = 41741 ; free virtual = 51561
+INFO: [Netlist 29-17] Analyzing 591 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2721.105 ; gain = 0.000 ; free physical = 41681 ; free virtual = 51501
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 8f945146
 INFO: [Common 17-83] Releasing license: Synthesis
-8 Infos, 13 Warnings, 0 Critical Warnings and 3 Errors encountered.
-synth_design failed
-ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
-INFO: [Common 17-206] Exiting Vivado at Thu Nov  9 21:13:59 2023...
+46 Infos, 24 Warnings, 48 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2721.105 ; gain = 946.371 ; free physical = 41896 ; free virtual = 51716
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint '/home/ytq/codeField/exercise/PROJ_11_14/LeNet_Accelerator/LeNet_Accelerator.runs/synth_1/TOP.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file TOP_utilization_synth.rpt -pb TOP_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 16 16:56:13 2023...
