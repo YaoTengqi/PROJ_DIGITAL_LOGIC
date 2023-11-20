@@ -22,7 +22,7 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple opencv-python
 
 2.   运行脚本
 
-     ![image-20231108164233832](环境搭建.assets/image-20231108164233832.png)
+     ![image-20231108164233832](scripts.assets/image-20231108164233832.png)
 
      可以手机拍照一个数字，尽量数字写的占满大半个屏幕。然后用图片替换这里的input.jpg，注意命名必须为input.jpg
 

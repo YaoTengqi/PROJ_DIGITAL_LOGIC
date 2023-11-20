@@ -13,42 +13,6 @@ from d2l import torch as d2l
 
 device = torch.device("cpu")
 
-# def generate_coe_file(file_path, data, radix=2, bits_per_data=8, data_per_line=16):
-#     """
-#     生成Xilinx COE（Coefficient）文件。
-
-#     参数：
-#     - file_path：保存COE文件的路径。
-#     - data：包含数据的NumPy数组。
-#     - radix：数据的进制（默认为2，即二进制）。
-#     - bits_per_data: 每个数据的位数（默认为8）。
-#     - data_per_line: 每行的数据个数（默认为16）。
-
-#     示例用法：
-#     generate_coe_file('/path/to/output.coe', quantized_input.numpy())
-#     """
-#     with open(file_path, 'w') as file:
-#         file.write(f"memory_initialization_radix={radix};\n")
-#         file.write(f"memory_initialization_vector=\n")
-
-#         # 使用np.nditer迭代数组元素
-#         with np.nditer(data, flags=['multi_index'], op_flags=['readonly']) as it:
-#             count = 0  # 计数器，用于每data_per_line个数据分组
-#             while not it.finished:
-#                 index = it.multi_index
-#                 value = int(it[0])  # 将每个数组元素转换为整数
-#                 binary_value = format(value, f'0{bits_per_data}b')  # 转换为指定位数的二进制字符串
-
-#                 file.write(f"{binary_value}")
-
-#                 count += 1
-#                 if count % data_per_line == 0 and not it.finished:
-#                     file.write(",\n")  # 在每data_per_line个数据后换行
-#                 elif not it.finished:
-#                     file.write("")  # 在数据之间添加逗号
-                
-#                 it.iternext()
-
 def generate_coe_file(file_path, data, radix=2, bits_per_data=8, data_per_line=16):
     """
     生成Xilinx COE（Coefficient）文件。
@@ -154,21 +118,8 @@ class LeNet(nn.Module):
         # add =torch.add(mm,quantized_bias)
         # print(add)
 
-        input_file_path = '/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/data/input.txt'
-        weights_file_path = '/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/data/weights.txt'
-        bias_file_path = '/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/data/bias.txt'
-
-        # quantized_input.numpy().tofile(input_file_path)
-        # quantized_weight.numpy().tofile(weights_file_path)
-        # quantized_bias.numpy().tofile(bias_file_path)
-
-        # np.savetxt(input_file_path, quantized_input.numpy(), fmt='%x')
-        # np.savetxt(weights_file_path, quantized_weight.numpy(), fmt='%x')
-        # np.savetxt(bias_file_path, quantized_bias.numpy(), fmt='%x')
-        # 使用上述函数生成COE文件
-
-        generate_coe_file('/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/data/input.coe', quantized_input.detach().numpy(), radix=2, bits_per_data=8, data_per_line=16)
-        generate_coe_file('/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC/code/data/weights.coe', quantized_weight.detach().numpy(), radix=2, bits_per_data=8, data_per_line=16)
+        generate_coe_file('/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC_COMPLETE/code/data/input.coe', quantized_input.detach().numpy(), radix=2, bits_per_data=8, data_per_line=16)
+        generate_coe_file('/home/ytq/codeField/exercise/PROJ_DIGITAL_LOGIC_COMPLETE/code/data/weights.coe', quantized_weight.detach().numpy(), radix=2, bits_per_data=8, data_per_line=16)
        
         # print(self.fc3(x))
         x = self.fc3(x)
